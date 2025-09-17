@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫酷圆角边框实现</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ff7e5f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .example {
+            height: 150px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .code {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .property {
+            color: #9cdcfe;
+        }
+        
+        .value {
+            color: #ce9178;
+        }
+        
+        .selector {
+            color: #d7ba7d;
+        }
+        
+        /* 示例1：标准圆角 */
+        .example-1 {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            border-radius: 25px;
+        }
+        
+        /* 示例2：椭圆圆角 */
+        .example-2 {
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            border-radius: 50% 20% / 10% 40%;
+        }
+        
+        /* 示例3：不对称圆角 */
+        .example-3 {
+            background: linear-gradient(45deg, #f64f59, #c471ed, #12c2e9);
+            border-radius: 70% 30% 40% 60% / 40% 50% 50% 60%;
+        }
+        
+        /* 示例4：带边框的圆角 */
+        .example-4 {
+            background: linear-gradient(45deg, #a8ff78, #78ffd6);
+            border-radius: 30px;
+            border: 5px dashed #fff;
+            box-shadow: 0 0 0 10px #78ffd6, 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 示例5：渐变边框 */
+        .example-5 {
+            background: 
+                linear-gradient(#2c3e50, #2c3e50) padding-box,
+                linear-gradient(45deg, #fdbb2d, #22c1c3) border-box;
+            border: 8px solid transparent;
+            border-radius: 40px 10px;
+        }
+        
+        /* 示例6：极圆与直角对比 */
+        .example-6 {
+            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+            border-radius: 50px 0 50px 0;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        .highlight {
+            color: #ff7e5f;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border-left: 5px solid #12c2e9;
+        }
+        
+        .note-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #12c2e9;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>炫酷圆角边框实现</h1>
+            <p class="subtitle">探索CSS border-radius属性的强大功能和创意应用</p>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-circle"></i> 标准圆角</h2>
+                <div class="example example-1">border-radius: 25px;</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">25px</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    使用单个值设置所有四个角的相同圆角半径，创建均匀的圆角效果。
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-egg"></i> 椭圆圆角</h2>
+                <div class="example example-2">border-radius: 50% 20% / 10% 40%;</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">50% 20% / 10% 40%</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    使用斜杠语法分别设置水平半径和垂直半径，创建椭圆状圆角。
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-cloud"></i> 不对称圆角</h2>
+                <div class="example example-3">border-radius: 70% 30% 40% 60% / 40% 50% 50% 60%;</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">70% 30% 40% 60% / 40% 50% 50% 60%</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    为每个角分别设置不同的值，创建有机、流动形状的不对称效果。
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-palette"></i> 带边框的圆角</h2>
+                <div class="example example-4">边框+阴影实现多重效果</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">30px</span>;<br>
+                    &nbsp;&nbsp;<span class="property">border</span>: <span class="value">5px dashed #fff</span>;<br>
+                    &nbsp;&nbsp;<span class="property">box-shadow</span>: <span class="value">0 0 0 10px #78ffd6, 0 0 15px rgba(0,0,0,0.3)</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    结合边框和阴影属性，创建复杂的多层边框效果，增强视觉深度。
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-paint-roller"></i> 渐变边框</h2>
+                <div class="example example-5">渐变边框+透明边框</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">background</span>: <span class="value"><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;linear-gradient(#2c3e50, #2c3e50) padding-box,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;linear-gradient(45deg, #fdbb2d, #22c1c3) border-box</span>;<br>
+                    &nbsp;&nbsp;<span class="property">border</span>: <span class="value">8px solid transparent</span>;<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">40px 10px</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    使用背景裁剪和透明边框技术，创建渐变效果的边框，这是较高级的CSS技巧。
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-cut"></i> 极圆与直角对比</h2>
+                <div class="example example-6">border-radius: 50px 0 50px 0;</div>
+                <div class="code">
+                    <span class="selector">.element</span> {<br>
+                    &nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">50px 0 50px 0</span>;<br>
+                    }
+                </div>
+                <div class="explanation">
+                    对角设置圆角，另外两个角保持直角，创建现代感十足的对比效果。
+                </div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <h3 class="note-title"><i class="fas fa-lightbulb"></i> 实现圆角的高级技巧</h3>
+            <p>1. 使用<span class="highlight">百分比值</span>可以创建响应式圆角，随元素尺寸变化而变化。</p>
+            <p>2. 结合<span class="highlight">CSS变量</span>可以轻松统一和管理整个项目的圆角风格。</p>
+            <p>3. 为圆角元素添加<span class="highlight">过渡动画</span>可以创建平滑的交互效果。</p>
+            <p>4. 使用<span class="highlight">伪元素</span>可以创建更复杂的形状和边框效果。</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加简单的交互效果
+        document.querySelectorAll('.example').forEach(example => {
+            example.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

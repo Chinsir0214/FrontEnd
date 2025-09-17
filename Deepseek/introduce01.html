@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS链接解释与演示</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #6a11cb;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #2575fc;
+            margin: 20px 0 10px;
+        }
+        
+        .container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .explanation, .demo {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+        }
+        
+        .tag {
+            color: #f92672;
+        }
+        
+        .attribute {
+            color: #a6e22e;
+        }
+        
+        .value {
+            color: #ae81ff;
+        }
+        
+        .comment {
+            color: #75715e;
+        }
+        
+        .example {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #6a11cb;
+            margin: 15px 0;
+        }
+        
+        .visual-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .styled-element {
+            padding: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .primary {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        .secondary {
+            background-color: #2575fc;
+            color: white;
+        }
+        
+        .success {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .file-structure {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            margin: 15px 0;
+        }
+        
+        .folder {
+            color: #78d6ff;
+        }
+        
+        .file {
+            color: #ffd700;
+        }
+        
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS链接标签解析</h1>
+        <p>理解&lt;link rel="stylesheet" href="./site.css"&gt;的含义与应用</p>
+    </header>
+    
+    <div class="container">
+        <div class="explanation">
+            <h2>代码含义解析</h2>
+            <p>这行HTML代码用于将外部CSS样式表链接到当前HTML文档：</p>
+            
+            <div class="code-block">
+                <span class="tag">&lt;link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"./site.css"</span><span class="tag">&gt;</span>
+            </div>
+            
+            <h3>组成部分解析：</h3>
+            <div class="example">
+                <p><strong>&lt;link&gt;</strong> - HTML标签，用于链接外部资源到当前文档</p>
+                <p><strong>rel="stylesheet"</strong> - 定义链接资源与当前文档的关系，此处表示链接的是样式表</p>
+                <p><strong>href="./site.css"</strong> - 指定外部CSS文件的路径：</p>
+                <ul>
+                    <li><strong>./</strong> - 表示当前目录（与HTML文件相同的目录）</li>
+                    <li><strong>site.css</strong> - CSS文件的名称</li>
+                </ul>
+            </div>
+            
+            <div class="note">
+                <p><strong>注意：</strong> 这行代码应该放置在HTML文档的&lt;head&gt;部分，以确保样式在页面加载时正确应用。</p>
+            </div>
+            
+            <h3>文件结构示例：</h3>
+            <div class="file-structure">
+                <div class="folder">项目目录/</div>
+                <div class="file">&nbsp;&nbsp;index.html</div>
+                <div class="file">&nbsp;&nbsp;site.css</div>
+                <div class="folder">&nbsp;&nbsp;images/</div>
+                <div class="file">&nbsp;&nbsp;&nbsp;&nbsp;logo.png</div>
+            </div>
+        </div>
+        
+        <div class="demo">
+            <h2>实际应用演示</h2>
+            <p>下面的元素样式是通过类似的外部CSS文件应用的：</p>
+            
+            <div class="visual-demo">
+                <div class="styled-element primary">
+                    <h3>主色调元素</h3>
+                    <p>这个元素的样式是通过CSS类".primary"定义的</p>
+                </div>
+                
+                <div class="styled-element secondary">
+                    <h3>次要色调元素</h3>
+                    <p>这个元素的样式是通过CSS类".secondary"定义的</p>
+                </div>
+                
+                <div class="styled-element success">
+                    <h3>成功状态元素</h3>
+                    <p>这个元素的样式是通过CSS类".success"定义的</p>
+                </div>
+            </div>
+            
+            <h3>site.css 文件内容示例：</h3>
+            <div class="code-block">
+                <span class="comment">/* 基础样式 */</span><br>
+                body {<br>
+                &nbsp;&nbsp;font-family: Arial, sans-serif;<br>
+                &nbsp;&nbsp;line-height: 1.6;<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                &nbsp;&nbsp;background-color: #f4f4f4;<br>
+                }<br><br>
+                
+                <span class="comment">/* 主色调 */</span><br>
+                .primary {<br>
+                &nbsp;&nbsp;background-color: #6a11cb;<br>
+                &nbsp;&nbsp;color: white;<br>
+                &nbsp;&nbsp;padding: 15px;<br>
+                &nbsp;&nbsp;border-radius: 5px;<br>
+                }<br><br>
+                
+                <span class="comment">/* 次要色调 */</span><br>
+                .secondary {<br>
+                &nbsp;&nbsp;background-color: #2575fc;<br>
+                &nbsp;&nbsp;color: white;<br>
+                &nbsp;&nbsp;padding: 15px;<br>
+                &nbsp;&nbsp;border-radius: 5px;<br>
+                }<br><br>
+                
+                <span class="comment">/* 成功状态 */</span><br>
+                .success {<br>
+                &nbsp;&nbsp;background-color: #2ecc71;<br>
+                &nbsp;&nbsp;color: white;<br>
+                &nbsp;&nbsp;padding: 15px;<br>
+                &nbsp;&nbsp;border-radius: 5px;<br>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <h2>使用外部CSS的优势</h2>
+    <div class="example">
+        <ul>
+            <li><strong>分离内容与表现</strong> - HTML负责结构，CSS负责样式</li>
+            <li><strong>易于维护</strong> - 修改网站样式只需更改CSS文件，无需修改每个HTML页面</li>
+            <li><strong>提高效率</strong> - 一个CSS文件可以被多个页面使用</li>
+            <li><strong>缓存优势</strong> - 浏览器会缓存CSS文件，加快页面加载速度</li>
+            <li><strong>一致性</strong> - 确保整个网站的风格统一</li>
+        </ul>
+    </div>
+    
+    <footer>
+        <p>© 2023 CSS链接解析教程 | 网页设计与前端开发基础知识</p>
+    </footer>
+</body>
+</html>

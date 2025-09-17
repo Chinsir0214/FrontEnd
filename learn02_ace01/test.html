@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinsir的作业02</title>
+
+    <style>
+      .center-text {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="center-text">
+      <span style="color: brown; font-family: 楷体; font-size: 24px"
+        ><b>欢迎注册Chinsir.com会员!!!</b></span
+      >
+    </div>
+
+    <form>
+      手机号码：
+      <input type="text" name="username" placeholder="11位手机号" />
+      <span style="color: red">必填</span>
+      <br />
+      创建密码：
+      <input
+        type="password"
+        name="key"
+        maxlength="8"
+        placeholder="请输入8位密码"
+      />
+      <span style="color: red">必填</span>
+      <br />
+      注册邮箱：
+      <input type="email" name="email" placeholder="请使用国内邮箱" />
+      <span style="color: red">必填</span>
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;验证码：
+      <input type="text" id="text" />
+      <canvas id="canvas" height="40" width="120"></canvas>
+      <input type="button" id="bt" value="提交" />
+      <br />
+      您的性别：
+      <input type="radio" name="sex" value="male" checked />生物男
+      <input type="radio" name="sex" value="male" />生物女
+      <br />
+      您的生日：
+      <input type="date" />
+      <br />
+      您的年龄：
+      <input type="text" name="age" placeholder="输入你的名字" />
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍贯：
+      <select name="province">
+        <option value="Hubei">湖北省</option>
+        <option value="NonHubei">外省</option>
+      </select>
+      <select name="city">
+        <option value="Wuhan">武汉市</option>
+        <option value="NonWuhan">外市</option>
+      </select>
+      <br />
+      个人学历：
+      <select name="degree">
+        <option value="1">本科</option>
+        <option value="2">博士</option>
+      </select>
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月薪：
+      <input
+        type="range"
+        id="earn"
+        min="0"
+        max="10000"
+        step="100"
+        value="3000"
+      />
+      <span id="msg"></span>
+      <br />
+      个人爱好：
+      <label><input type="checkbox" name="hobby" value="chouyan" />抽烟</label>
+      <label><input type="checkbox" name="hobby" value="hejiu" />喝酒</label>
+      <label><input type="checkbox" name="hobby" value="tangtou" />烫头</label>
+      <br />
+      个人照片：
+      <input type="file" name="photo" />
+      个人简介：<br>
+      <textarea name="into" cols="50" rows="10">在这填写个人简历</textarea>
+      <br>
+      <input type="submit" value="提交">
+      <input type="reset" value="重新填写">
+    </form>
+    <script>
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var button = document.getElementById("bt");
+      var input = document.getElementById("text");
+      draw();
+
+      canvas.onclick = function () {
+        context.clearRect(0, 0, 120, 40);
+        draw();
+      };
+
+      function getColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+      }
+
+      function draw() {
+        context.strokeRect(0, 0, 120, 40);
+        var aCode = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+        ];
+        var arr = [];
+        var num;
+        for (var i = 0; i < 4; i++) {
+          var x = 20 + i * 20;
+          var y = 20 + 10 * Math.random();
+          var index = Math.floor(Math.random() * aCode.length);
+          var txt = aCode[index];
+          context.font = "bold 20px 微软雅黑";
+          context.fillStyle = getColor();
+          context.translate(x, y);
+          var deg = (90 * Math.random() * Math.PI) / 180;
+          context.rotate(deg);
+          context.fillText(txt, 0, 0);
+          context.rotate(-deg);
+          context.translate(-x, -y);
+          arr[i] = txt;
+        }
+        num = arr.join("");
+      }
+
+      var msg = document.getElementById("msg");
+      window.onload = function () {
+        msg.innerHTML = document.getElementById("earn").value;
+      };
+      document.getElementById("earn").onchange = function () {
+        msg.innerHTML = this.value;
+      };
+    </script>
+  </body>
+</html>

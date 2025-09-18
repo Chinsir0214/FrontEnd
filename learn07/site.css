@@ -1,45 +1,59 @@
+html,
 body {
-  background-image: url(./img/back.png) no-repeat;
   height: 100%;
-  height: 100%;
-  overflow: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: url("./img/back.png") no-repeat center center fixed;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .register-form {
+  width: 90%;
   max-width: 800px;
-  margin: 30px;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 30px;
   border: 2px solid #eee;
-  border-radius: 8px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.form-gruoup {
-  margin-bottom: 15px;
+.form-group {
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: darkslategray;
+  font-weight: bold;
 }
 
 input {
   width: 100%;
-  padding: 8px 10px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
   border-radius: 8px;
   outline: none;
-  transition: border 0.3s;
+  transition: all 0.3s;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 input[required] {
-  border: 1px solid red;
+  border-left: 4px solid #e74c3c;
 }
 
 .phone-group {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 input[placeholder*="手机号"] {
@@ -48,26 +62,46 @@ input[placeholder*="手机号"] {
 
 .code-btn {
   width: 30%;
-  padding: 8px 0;
+  padding: 12px 0;
   background: #1cf732;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.code-btn:hover {
+  background: #17d02b;
 }
 
 input:focus {
   border-color: #3498db;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
 button[type="submit"] {
   width: 100%;
-  padding: 10px 0;
+  padding: 14px 0;
   background: #2ecc71;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 18px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background: #27ae60;
+}
+
+.form-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 28px;
 }

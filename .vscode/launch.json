@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open test.html",
-            "file": "d:\\Code\\FrontEnd\\learn06\\test.html"
+            "file": "${file}"
         }
     ]
 }

@@ -1,0 +1,365 @@
+/* 按注释要求，实现下面所有写有blank的选择器(一共21个) */
+
+/* 1. 通配符 */
+blank {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面整体样色，例如页面背景设置为#f8f9fc浅灰色 */
+blank {
+  line-height: 1.8;
+  color: #333;
+  background: #f8f9fc;
+  overflow-x: hidden;
+}
+
+/* 2. 导航菜单（类选择器） */
+.nav-menu {
+  background: white;
+  padding: 1rem 0;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 菜单的所有导航项li（要求使用直接子元素选择器） */
+blank {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+/* 菜单的所有链接a（要求使用后代选择器）*/
+blank {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+/* 链接添加悬浮样式 */
+blank {
+  background-color: #007bff;
+  color: white;
+}
+
+/* 3. 头部渐变背景 */
+header {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 头部的h1元素 （要求使用后代选择器）*/
+blank {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 头部的p元素（后代选择器） */
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* 4. 英雄区域-中心大图（id选择器） */
+#hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("images/img_mountains_wide.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* 给hero背景图添加黑色遮罩，暗化背景图（要求使用伪元素） */
+blank {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* 英雄区域的container容器（要求使用直接后代选择器） */
+blank {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* 英雄区域的h2标签 */
+#hero h2 {
+  color: #ffd43b;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 英雄区域的highlight（要求使用后代选择器） */
+blank {
+  background-color: #ffd43b;
+  color: #000;
+  padding: 0.2em 0.5em;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* 5. 按钮样式（class选择器） */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+/* btn按钮添加悬浮 */
+blank  {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* btn按钮被点击（要求使用伪类） */
+blank {
+  transform: translateY(-1px);
+}
+
+/* 6. 所有的container容器布局 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #1a2a6c;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* h2的第一个兄弟p */
+blank {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: #666;
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* 7. 服务卡片 */
+.services-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 服务卡片悬浮 */
+blank {
+  transform: translateY(-10px);
+}
+
+.services-card h3 {
+  color: #1a2a6c;
+  font-size: 1.5rem;
+  margin-bottom: 0.8em;
+}
+
+/* 8. 特性样式（特性栏目中的h3的所有p兄弟添加左边框） */
+blank {
+  border-left: 5px solid #007bff;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  background-color: #f1f8ff;
+  border-radius: 0 8px 8px 0;
+}
+
+/* 9. 价格项 */
+.price-item {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 1rem 0;
+  color: #444;
+}
+
+/* 价格后面补充文字说明（要求使用伪元素选择器） */
+blank {
+  content: " (含增值税)";
+  font-size: 0.8em;
+  color: #888;
+  margin-left: 0.5em;
+}
+
+/* 10. 团队列表 */
+.team-members {
+  list-style: none;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.team-members li {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+}
+
+/* 团队中的li元素 （设置奇数项背景色）*/
+blank {
+  background-color: #fafafa;
+}
+
+/* 团队中的最后一个li元素 （伪元素选择器）*/
+blank {
+  border-bottom: none;
+}
+
+/* 11. 客户评价 */
+.testimonials {
+  list-style: none;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.testimonials li {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-style: italic;
+  color: #555;
+  position: relative;
+}
+
+/* 12. 联系我们 */
+#contact-form {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 3rem auto 0;
+}
+
+#contact-form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+/* form中所有的input获得焦点*/
+blank {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* 13. 引言文本美化 */
+.intro-text {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #444;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 引言的第一个字符加大 */
+blank {
+  font-size: 4em;
+  float: left;
+  line-height: 0.8;
+  margin: 0.1em 0.1em 0 0;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* 引言的第一行加粗颜色加深 */
+blank {
+  font-weight: 600;
+  color: #1a2a6c;
+}
+
+/* 14. 页脚 */
+footer {
+  background: #1a2a6c;
+  color: white;
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: #ffd43b;
+  text-decoration: none;
+}
+
+/* 页脚链接悬浮 */
+blank {
+  text-decoration: underline;
+}
+
+/* 15. 响应式适配 */
+@media (max-width: 768px) {
+  #hero h2 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    display: block;
+    margin: 10px auto;
+  }
+  .services-card {
+    max-width: 100%;
+  }
+}

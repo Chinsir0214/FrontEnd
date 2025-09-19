@@ -1,14 +1,14 @@
 /* 按注释要求，实现下面所有写有blank的选择器(一共21个) */
 
 /* 1. 通配符 */
-blank {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* 页面整体样色，例如页面背景设置为#f8f9fc浅灰色 */
-blank {
+body {
   line-height: 1.8;
   color: #333;
   background: #f8f9fc;
@@ -28,13 +28,13 @@ blank {
 }
 
 /* 菜单的所有导航项li（要求使用直接子元素选择器） */
-blank {
+.nav-menu > li {
   display: inline-block;
   margin: 0 15px;
 }
 
 /* 菜单的所有链接a（要求使用后代选择器）*/
-blank {
+.nav-menu a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -45,7 +45,7 @@ blank {
 }
 
 /* 链接添加悬浮样式 */
-blank {
+.nav-menu a:hover {
   background-color: #007bff;
   color: white;
 }
@@ -60,7 +60,7 @@ header {
 }
 
 /* 头部的h1元素 （要求使用后代选择器）*/
-blank {
+header h1 {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -85,7 +85,7 @@ header p {
 }
 
 /* 给hero背景图添加黑色遮罩，暗化背景图（要求使用伪元素） */
-blank {
+#hero::before {
   content: "";
   position: absolute;
   top: 0;
@@ -97,7 +97,7 @@ blank {
 }
 
 /* 英雄区域的container容器（要求使用直接后代选择器） */
-blank {
+#hero > .container {
   position: relative;
   z-index: 2;
   color: white;
@@ -112,7 +112,7 @@ blank {
 }
 
 /* 英雄区域的highlight（要求使用后代选择器） */
-blank {
+#hero .highlight {
   background-color: #ffd43b;
   color: #000;
   padding: 0.2em 0.5em;
@@ -147,13 +147,13 @@ blank {
 }
 
 /* btn按钮添加悬浮 */
-blank  {
+.btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* btn按钮被点击（要求使用伪类） */
-blank {
+.btn:active {
   transform: translateY(-1px);
 }
 
@@ -176,7 +176,7 @@ h2 {
 }
 
 /* h2的第一个兄弟p */
-blank {
+h2 + p {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 3rem;
@@ -197,7 +197,7 @@ blank {
 }
 
 /* 服务卡片悬浮 */
-blank {
+.services-card:hover {
   transform: translateY(-10px);
 }
 
@@ -208,7 +208,7 @@ blank {
 }
 
 /* 8. 特性样式（特性栏目中的h3的所有p兄弟添加左边框） */
-blank {
+.features-list h3 ~ p {
   border-left: 5px solid #007bff;
   padding: 1rem 1.5rem;
   margin: 1rem 0;
@@ -225,7 +225,7 @@ blank {
 }
 
 /* 价格后面补充文字说明（要求使用伪元素选择器） */
-blank {
+.price-item::after {
   content: " (含增值税)";
   font-size: 0.8em;
   color: #888;
@@ -246,12 +246,12 @@ blank {
 }
 
 /* 团队中的li元素 （设置奇数项背景色）*/
-blank {
+.team-members li:nth-child(odd) {
   background-color: #fafafa;
 }
 
-/* 团队中的最后一个li元素 （伪元素选择器）*/
-blank {
+/* 团队中的最后一个li元素 （伪类选择器）*/
+.team-members li:last-child {
   border-bottom: none;
 }
 
@@ -294,7 +294,7 @@ blank {
 }
 
 /* form中所有的input获得焦点*/
-blank {
+#contact-form input:focus {
   outline: none;
   border-color: #007bff;
 }
@@ -313,7 +313,7 @@ blank {
 }
 
 /* 引言的第一个字符加大 */
-blank {
+.intro-text::first-letter {
   font-size: 4em;
   float: left;
   line-height: 0.8;
@@ -323,7 +323,7 @@ blank {
 }
 
 /* 引言的第一行加粗颜色加深 */
-blank {
+.intro-text::first-line {
   font-weight: 600;
   color: #1a2a6c;
 }
@@ -343,7 +343,7 @@ footer a {
 }
 
 /* 页脚链接悬浮 */
-blank {
+footer a:hover {
   text-decoration: underline;
 }
 

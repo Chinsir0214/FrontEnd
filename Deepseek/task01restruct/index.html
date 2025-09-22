@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>欢迎注册Chinsir.com会员</title>
+    <!-- 引入外部CSS文件 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h1>欢迎注册Chinsir.com会员!</h1>
+
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label for="phone">手机号码：</label>
+          <div class="input-wrapper">
+            <input type="text" id="phone" name="username" placeholder="11位手机号" required />
+            <span class="required-mark">必填</span>
+            <span class="error-msg" id="phoneError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">创建密码：</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="key"
+              maxlength="16"
+              minlength="8"
+              placeholder="请输入8-16位密码"
+              required
+            />
+            <span class="required-mark">必填</span>
+            <span class="error-msg" id="passwordError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">注册邮箱：</label>
+          <div class="input-wrapper">
+            <input type="email" id="email" name="email" placeholder="请使用常用邮箱" required />
+            <span class="required-mark">必填</span>
+            <span class="error-msg" id="emailError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="captchaInput">验证码：</label>
+          <div class="input-wrapper captcha-wrapper">
+            <input type="text" id="captchaInput" placeholder="不区分大小写" />
+            <canvas id="canvas" height="40" width="120" title="点击刷新"></canvas>
+            <span class="error-msg" id="captchaError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>您的性别：</label>
+          <div class="input-wrapper radio-group">
+            <label><input type="radio" name="sex" value="male" checked /> 生物男</label>
+            <label><input type="radio" name="sex" value="female" /> 生物女</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="birthday">您的生日：</label>
+          <div class="input-wrapper">
+            <input type="date" id="birthday" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="age">您的年龄：</label>
+          <div class="input-wrapper">
+            <input type="number" id="age" name="age" placeholder="输入您的年龄" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="province">籍贯：</label>
+          <div class="input-wrapper">
+            <select id="province" name="province">
+              <option value="Hubei">湖北省</option>
+              <option value="NonHubei">外省</option>
+            </select>
+            <select name="city">
+              <option value="Wuhan">武汉市</option>
+              <option value="NonWuhan">外市</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="degree">个人学历：</label>
+          <div class="input-wrapper">
+            <select id="degree" name="degree">
+              <option value="bachelor">本科</option>
+              <option value="doctor">博士</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="earn">月薪：</label>
+          <div class="input-wrapper range-wrapper">
+            <input type="range" id="earn" min="0" max="20000" step="500" value="5000" />
+            <span id="earnValue">5000</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>个人爱好：</label>
+          <div class="input-wrapper checkbox-group">
+            <label><input type="checkbox" name="hobby" value="chouyan" /> 抽烟</label>
+            <label><input type="checkbox" name="hobby" value="hejiu" /> 喝酒</label>
+            <label><input type="checkbox" name="hobby" value="tangtou" /> 烫头</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">个人照片：</label>
+          <div class="input-wrapper">
+            <input type="file" id="photo" name="photo" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="intro">个人简介：</label>
+          <div class="input-wrapper">
+            <textarea id="intro" name="into" cols="50" rows="5" placeholder="在这填写个人简介..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <input type="submit" value="立即注册" />
+          <input type="reset" value="重新填写" />
+        </div>
+      </form>
+    </div>
+
+    <!-- 引入外部JavaScript文件 -->
+    <script src="script.js"></script>
+  </body>
+</html>

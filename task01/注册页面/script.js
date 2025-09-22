@@ -1,20 +1,5 @@
-var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d");
-var button = document.getElementById("bt");
-var input = document.getElementById("text");
-draw();
-
-canvas.onclick = function () {
-  context.clearRect(0, 0, 120, 40);
-  draw();
-};
-
-function getColor() {
-  var r = Math.floor(Math.random() * 256);
-  var g = Math.floor(Math.random() * 256);
-  var b = Math.floor(Math.random() * 256);
-  return "rgb(" + r + "," + g + "," + b + ")";
-}
+cth.floor(Math.random() * 256);
+return "rgb(" + r + "," + g + "," + b + ")";
 
 function draw() {
   context.strokeRect(0, 0, 120, 40);

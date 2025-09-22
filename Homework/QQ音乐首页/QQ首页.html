@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QQ音乐首页</title>
+    <style>
+      /* 基础重置 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* 头部样式 */
+      header {
+        background-color: #fff;
+        padding: 20px 0;
+      }
+
+      .header-inner {
+        text-align: center;
+      }
+
+      .header-inner img {
+        width: 120px;
+        height: auto;
+      }
+
+      /* 导航菜单样式 */
+      .tag-list {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* ========== 1、完成导航项样式（tag-item） ========== */
+      .tag-item {
+      }
+
+      /* 当前选中的菜单 (tag-active) */
+      .tag-item.tag-active {
+        background-color: #31c27c; /* QQ音乐绿色 */
+        color: white;
+        border-color: #31c27c;
+      }
+
+      /* ========== 2、完成菜单项悬停效果 ========== */
+      .tag-item {
+      }
+
+      /* 播放列表 */
+      .playlist {
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* ========== 3、完成专辑和封面容器（album和cover-wrap） ========== */
+      /* 专辑 */
+      .album {
+      }
+
+      /* 专辑封面容器 */
+      .cover-wrap {
+        position: relative;
+        /*继续完成...*/
+      }
+
+      /* 专辑图片 */
+      .cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* 封面遮罩（初始隐藏：透明度=0）*/
+      .cover-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      /* 播放图标样式（初始隐藏：透明度=0）*/
+      .cover-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      /* 鼠标悬停时显示遮罩和播放图标 */
+      .cover-wrap:hover .cover-mask,
+      .cover-wrap:hover .cover-play {
+        opacity: 1;
+      }
+
+      /* 文字超出隐藏（单行） */
+      .nowrap {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+        margin: 0 auto;
+      }
+
+      /* ========== 4、完成专辑信息公共样式 ==========  */
+      .album-title,
+      .album-author,
+      .album-time {
+      }
+
+      .album-author {
+        color: #666;
+      }
+
+      .album-time {
+        color: #999;
+        font-size: 12px;
+      }
+
+      /* 分页 */
+      .page {
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      /* ========== 5、完成分页项样式 ========== */
+      .page-item {
+      }
+
+      /* 当前页和分页项悬浮效果 */
+      .page-current,
+      .page-item:not(.page-more):hover {
+        background-color: #31c27c;
+        color: white;
+      }
+
+      /* 更多页 */
+      .page-more {
+        border: none;
+        color: #999;
+        cursor: default;
+      }
+
+      /* 页脚 */
+      footer {
+        background-color: #333;
+        height: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <img src="https://y.qq.com/mediastyle/yqq/img/logo.png?max_age=2592000" />
+      </div>
+    </header>
+    <main>
+      <div class="tag-list">
+        <a href="#" class="tag-item tag-active">内地</a>
+        <a href="#" class="tag-item">港台</a>
+        <a href="#" class="tag-item">欧美</a>
+        <a href="#" class="tag-item">韩国</a>
+        <a href="#" class="tag-item">日本</a>
+        <a href="#" class="tag-item">其他</a>
+      </div>
+      <div class="playlist">
+        <div class="album">
+          <a href="#" class="cover-wrap">
+            <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000000hNAwr4dbutH_1.jpg" class="cover-img" />
+            <div class="cover-mask"></div>
+            <img src="https://y.qq.com/ryqq/static/media/cover_play@2x.53a26efb.png?max_age=2592000" class="cover-play" />
+          </a>
+          <div>
+            <a href="#" class="nowrap album-title">向宿命挥拳的人</a>
+          </div>
+          <div>
+            <a href="#" class="nowrap album-author">阿云嘎</a>
+          </div>
+          <div class="nowrap album-time">2021-04-16</div>
+        </div>
+        <div class="album">
+          <a href="#" class="cover-wrap">
+            <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000000kxqtN0ddCpU_1.jpg" class="cover-img" />
+            <div class="cover-mask"></div>
+            <img src="https://y.qq.com/ryqq/static/media/cover_play@2x.53a26efb.png?max_age=2592000" class="cover-play" />
+          </a>
+          <div>
+            <a href="#" class="nowrap album-title">说得到做得到</a>
+          </div>
+          <div>
+            <a href="#" class="nowrap album-author">胡海泉</a>
+          </div>
+          <div class="nowrap album-time">2021-04-16</div>
+        </div>
+        <div class="album">
+          <a href="#" class="cover-wrap">
+            <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001RNYYW0rHuPV_1.jpg" class="cover-img" />
+            <div class="cover-mask"></div>
+            <img src="https://y.qq.com/ryqq/static/media/cover_play@2x.53a26efb.png?max_age=2592000" class="cover-play" />
+          </a>
+          <div>
+            <a href="#" class="nowrap album-title">不在见</a>
+          </div>
+          <div>
+            <a href="#" class="nowrap album-author">象乐队</a>
+          </div>
+          <div class="nowrap album-time">2021-04-16</div>
+        </div>
+      </div>
+      <div class="page">
+        <a href="#" class="page-item page-current">1</a>
+        <a href="#" class="page-item">2</a>
+        <a href="#" class="page-item">3</a>
+        <a href="#" class="page-item">4</a>
+        <span class="page-item page-more">...</span>
+        <a href="#" class="page-item">99</a>
+        <a href="#" class="page-item">&gt;</a>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

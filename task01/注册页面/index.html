@@ -4,80 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chinsir的大作业01：注册页面</title>
-
-    <style>
-      .center-text {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
 
   <body>
     <div class="center-text">
-      <span style="color: brown; font-family: 楷体; font-size: 24px"><b>欢迎注册Chinsir.com会员!!!</b></span>
+      <span style="color: brown; font-family: 楷体; font-size: 24px"
+        ><b>欢迎注册Chinsir.com会员!!!</b></span
+      >
     </div>
 
     <form>
-      手机号码：
-      <input type="text" name="username" placeholder="11位手机号" />
-      <span style="color: red">必填</span>
-      <br />
-      创建密码：
-      <input type="password" name="key" maxlength="8" placeholder="请输入8位密码" />
-      <span style="color: red">必填</span>
-      <br />
-      注册邮箱：
-      <input type="email" name="email" placeholder="请使用国内邮箱" />
-      <span style="color: red">必填</span>
-      <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;验证码：
-      <input type="text" id="text" />
-      <canvas id="canvas" height="40" width="120"></canvas>
-      <input type="button" id="bt" value="提交" />
-      <br />
-      您的性别：
-      <input type="radio" name="sex" value="male" checked />生物男
-      <input type="radio" name="sex" value="female" />生物女
-      <br />
-      您的生日：
-      <input type="date" />
-      <br />
-      您的年龄：
-      <input type="text" name="age" placeholder="输入你的年龄" />
-      <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍贯：
-      <select name="province">
-        <option value="Hubei">湖北省</option>
-        <option value="NonHubei">外省</option>
-      </select>
-      <select name="city">
-        <option value="Wuhan">武汉市</option>
-        <option value="NonWuhan">外市</option>
-      </select>
-      <br />
-      个人学历：
-      <select name="degree">
-        <option value="1">本科</option>
-        <option value="2">博士</option>
-      </select>
-      <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月薪：
-      <input type="range" id="earn" min="0" max="10000" step="100" value="3000" />
-      <span id="msg"></span>
-      <br />
-      个人爱好：
-      <label><input type="checkbox" name="hobby" value="chouyan" />抽烟</label>
-      <label><input type="checkbox" name="hobby" value="hejiu" />喝酒</label>
-      <label><input type="checkbox" name="hobby" value="tangtou" />烫头</label>
-      <br />
-      个人照片：
-      <input type="file" name="photo" />
-      <br />
-      个人简介：<br />
-      <textarea name="into" cols="50" rows="10">在这填写个人简历</textarea>
-      <br />
-      <input type="submit" value="提交" />
-      <input type="reset" value="重新填写" />
+      <div class="form-row">
+        <label for="username">手机号码：</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="11位手机号"
+        />
+        <span style="color: red">必填</span>
+      </div>
+
+      <div class="form-row">
+        <label for="key">创建密码：</label>
+        <input
+          type="password"
+          id="key"
+          name="key"
+          maxlength="8"
+          placeholder="请输入8位密码"
+        />
+        <span style="color: red">必填</span>
+      </div>
+
+      <div class="form-row">
+        <label for="email">注册邮箱：</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="请使用国内邮箱"
+        />
+        <span style="color: red">必填</span>
+      </div>
+
+      <div class="form-row">
+        <label for="text">验证码：</label>
+        <input type="text" id="text" />
+        <canvas id="canvas" height="40" width="120"></canvas>
+        <input type="button" id="bt" value="提交" />
+      </div>
+
+      <div class="form-row">
+        <span>您的性别：</span>
+        <input type="radio" id="male" name="sex" value="male" checked />
+        <label for="male">生物男</label>
+        <input type="radio" id="female" name="sex" value="female" />
+        <label for="female">生物女</label>
+      </div>
+
+      <div class="form-row">
+        <label for="birthday">您的生日：</label>
+        <input type="date" id="birthday" />
+      </div>
+
+      <div class="form-row">
+        <label for="age">您的年龄：</label>
+        <input type="text" id="age" name="age" placeholder="输入你的年龄" />
+      </div>
+
+      <div class="form-row">
+        <label for="province">籍贯：</label>
+        <select id="province" name="province">
+          <option value="Hubei">湖北省</option>
+          <option value="NonHubei">外省</option>
+        </select>
+        <select id="city" name="city">
+          <option value="Wuhan">武汉市</option>
+          <option value="NonWuhan">外市</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="degree">个人学历：</label>
+        <select id="degree" name="degree">
+          <option value="1">本科</option>
+          <option value="2">博士</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="earn">月薪：</label>
+        <input
+          type="range"
+          id="earn"
+          min="0"
+          max="10000"
+          step="100"
+          value="3000"
+        />
+        <span id="msg"></span>
+      </div>
+
+      <div class="form-row">
+        <span>个人爱好：</span>
+        <label
+          ><input type="checkbox" name="hobby" value="chouyan" />抽烟</label
+        >
+        <label><input type="checkbox" name="hobby" value="hejiu" />喝酒</label>
+        <label
+          ><input type="checkbox" name="hobby" value="tangtou" />烫头</label
+        >
+      </div>
+
+      <div class="form-row">
+        <label for="photo">个人照片：</label>
+        <input type="file" id="photo" name="photo" />
+      </div>
+
+      <div class="form-row">
+        <label for="into">个人简介：</label>
+        <textarea
+          id="into"
+          name="into"
+          cols="50"
+          rows="10"
+          style="vertical-align: middle"
+        >
+在这填写个人简历</textarea
+        >
+      </div>
+
+      <div class="form-row">
+        <input type="submit" value="提交" />
+        <input type="reset" value="重新填写" />
+      </div>
     </form>
 
     <script type="text/javascript" src="./script.js"></script>

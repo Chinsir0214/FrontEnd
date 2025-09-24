@@ -38,12 +38,19 @@
       .tag-list {
         text-align: center;
         padding: 20px 0;
-        background-color: #f5f5f5;
-        border-bottom: 1px solid #ddd;
+        border-radius: 10px;
       }
 
       /* ========== 1、完成导航项样式（tag-item） ========== */
       .tag-item {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s;
       }
 
       /* 当前选中的菜单 (tag-active) */
@@ -54,7 +61,10 @@
       }
 
       /* ========== 2、完成菜单项悬停效果 ========== */
-      .tag-item {
+      .tag-item:hover {
+        background-color: #31c27c; /* QQ音乐绿色 */
+        color: white;
+        border-color: #31c27c;
       }
 
       /* 播放列表 */
@@ -66,12 +76,18 @@
       /* ========== 3、完成专辑和封面容器（album和cover-wrap） ========== */
       /* 专辑 */
       .album {
+        display: inline-block;
+        width: 200px;
+        margin:0 10px 30px;
       }
 
       /* 专辑封面容器 */
       .cover-wrap {
         position: relative;
-        /*继续完成...*/
+        display: block;
+        margin-bottom: 10px;
+        overflow: hidden;
+        border-radius: 8px;
       }
 
       /* 专辑图片 */
@@ -124,6 +140,10 @@
       .album-title,
       .album-author,
       .album-time {
+        display: block;
+        text-decoration: none;
+        padding: 2px 0;
+        color: #333;
       }
 
       .album-author {
@@ -143,6 +163,14 @@
 
       /* ========== 5、完成分页项样式 ========== */
       .page-item {
+        display: inline-block;
+        text-align: center;
+        padding: 8px 16px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        border-radius: 4px;
+        color: #333;
       }
 
       /* 当前页和分页项悬浮效果 */

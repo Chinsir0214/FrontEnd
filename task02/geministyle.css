@@ -1,0 +1,186 @@
+:root {
+  --primary-color: #31c27c;
+}
+body {
+  margin: 0;
+  background: #f5f5f5;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: 14px;
+  min-width: 1000px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Header */
+header {
+    height: 90px;
+    background: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header-inner {
+  width: 1200px;
+  margin: auto;
+}
+
+.header-inner img {
+    height: 40px;
+}
+
+/* Banner */
+.banner {
+    width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.banner-item {
+    display: inline-block;
+    padding: 8px 25px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    color: #000;
+    transition: all 0.3s;
+}
+
+.banner-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Playlist */
+.playlist {
+    width: 200px; /* Assuming a grid layout, this would be one item's width */
+    margin: 20px; /* Example margin */
+    display: inline-block; /* For demonstration purposes */
+    vertical-align: top;
+}
+/* 容器样式 */
+.album {
+    position: relative;
+    /* overflow: hidden; 加在这里或者 .cover-wrap 上都可以 */
+}
+
+/* 链接包裹器，设置为块级元素并开启溢出隐藏 */
+.cover-wrap {
+    display: block;
+    position: relative;
+    overflow: hidden; /* 关键：隐藏超出容器的部分 */
+    border-radius: 5px; /* 将圆角移到这里，这样遮罩和图片都能应用到 */
+}
+
+/* 封面图片样式 */
+.cover-img {
+    width: 100%;
+    display: block;
+    /* border-radius: 5px;  从这里移走 */
+    transition: transform 0.3s ease; /* 关键：添加平滑过渡效果 */
+}
+
+/* 鼠标悬浮在链接包裹器上时，图片放大 */
+.cover-wrap:hover .cover-img {
+    transform: scale(1.1); /* 推荐使用 transform: scale() 来进行缩放 */
+}
+
+/* 播放按钮和遮罩的样式保持不变，以确保它们在图片上层 */
+.cover-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.cover-wrap:hover .cover-mask {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cover-wrap:hover .play-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.album-title {
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-title:hover {
+    color: var(--primary-color);
+}
+
+.album-author {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-author:hover {
+    color: var(--primary-color);
+}
+
+.click.rate {
+    margin-top: 5px;
+    color: #999;
+}
+
+/* Pagination */
+.page {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.page-item, .page-current {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border: 1px solid #f2f2f2;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s;
+}
+
+.page-item:hover, .page-current:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.page-current {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.page-more {
+    border: none;
+    background: none;
+}

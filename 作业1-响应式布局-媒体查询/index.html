@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小明 - 全栈开发者</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 导航栏 -->
+      <header class="navbar">
+        <a href="#" class="logo">logo</a>
+        <!-- 汉堡按钮 -->
+        <button class="menu-toggle" aria-expanded="false" aria-label="切换菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+          <a href="#intro">简介</a>
+          <a href="#projects">项目</a>
+          <a href="#experience">经历</a>
+          <a href="#contact">联系</a>
+        </nav>
+      </header>
+
+      <!-- 横幅图 -->
+      <div class="banner">
+        <img src="https://picsum.photos/id/410/1200/400" alt="科技感横幅图" loading="lazy" />
+      </div>
+
+      <!-- 主内容 -->
+      <main class="main-content">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+          <section class="profile">
+            <img src="https://picsum.photos/id/1005/120/120" alt="小明的头像" loading="lazy" fetchpriority="high" />
+            <h2>小明</h2>
+            <p>全栈开发者 | UI/UX 爱好者</p>
+          </section>
+
+          <section class="skills">
+            <h3>技能</h3>
+            <div class="skill-item">
+              <span aria-hidden="true">⚡</span>
+              <span>JavaScript / TypeScript</span>
+            </div>
+            <div class="skill-item">
+              <span aria-hidden="true">⚛️</span>
+              <span>React / Vue</span>
+            </div>
+            <div class="skill-item">
+              <span aria-hidden="true">🚀</span>
+              <span>Node.js / Express</span>
+            </div>
+            <div class="skill-item">
+              <span aria-hidden="true">🎨</span>
+              <span>CSS / Sass / Tailwind</span>
+            </div>
+            <div class="skill-item">
+              <span aria-hidden="true">📊</span>
+              <span>MongoDB / MySQL</span>
+            </div>
+          </section>
+        </aside>
+
+        <!-- 主内容区 -->
+        <section class="main-section">
+          <section id="intro" class="section">
+            <h3>简介</h3>
+            <p>我是小明，一名热爱技术与设计的全栈开发者。专注于构建高性能、用户体验优秀的 Web 应用。</p>
+            <p>我擅长使用 HTML、CSS 和 JavaScript 开发现代网页，熟悉 React 框架，并持续学习前沿技术。</p>
+            <p>我相信简洁的设计和良好的用户体验是成功产品的关键。</p>
+          </section>
+
+          <section id="projects" class="section">
+            <h3>我的项目</h3>
+            <div class="projects">
+              <article class="project-card">
+                <div class="project-img" style="background-image: url('https://picsum.photos/id/41/300/180')" aria-label="电商系统界面"></div>
+                <div class="project-info">
+                  <h4>电商后台管理系统</h4>
+                  <p>基于 React 和 Ant Design 构建的管理平台，支持商品、订单、用户管理，集成数据统计与权限控制模块。</p>
+                  <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">AntD</span>
+                    <span class="tag">Node.js</span>
+                  </div>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-img" style="background-image: url('https://picsum.photos/id/42/300/180')" aria-label="记账应用界面"></div>
+                <div class="project-info">
+                  <h4>移动端记账应用</h4>
+                  <p>一款简洁的记账 App，支持数据可视化和导出功能，采用离线优先设计，确保数据安全。</p>
+                  <div class="project-tags">
+                    <span class="tag">Vue</span>
+                    <span class="tag">Vant</span>
+                    <span class="tag">ECharts</span>
+                  </div>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-img" style="background-image: url('https://picsum.photos/id/1/300/180')" aria-label="博客界面"></div>
+                <div class="project-info">
+                  <h4>博客系统</h4>
+                  <p>使用 Next.js 和 Markdown 构建的静态博客，支持 SSR 和 SEO 优化，集成评论和搜索功能。</p>
+                  <div class="project-tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Tailwind</span>
+                    <span class="tag">Markdown</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="experience" class="section">
+            <h3>经历</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>高级前端工程师 - ABC科技</h4>
+                  <div class="timeline-date">2025年6月 - 至今</div>
+                  <p>负责核心产品前端架构设计与开发，带领小组完成多个重要项目上线，优化构建流程使部署时间减少60%。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>前端开发工程师 - XYZ网络</h4>
+                  <div class="timeline-date">2024年3月 - 2025年5月</div>
+                  <p>参与公司官网及内部管理系统的开发与维护，优化页面性能提升40%，主导实现了组件库的搭建与推广。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>实习生 - 创新软件</h4>
+                  <div class="timeline-date">2023年7月 - 2024年2月</div>
+                  <p>学习并实践前端开发流程，参与小型项目开发，独立完成3个页面模块的设计与实现。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>武汉科技大学 计算机科学与技术 - 硕士</h4>
+                  <div class="timeline-date">2021年9月 - 2024年6月</div>
+                  <p>研究方向：人工智能与自然语言处理。参与国家重点实验室项目，发表论文2篇。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>武汉科技大学 软件工程 - 学士</h4>
+                  <div class="timeline-date">2017年9月 - 2021年6月</div>
+                  <p>GPA: 3.8/4.0，多次获得校级奖学金，参与开源社区贡献，开发的课程项目获得校级一等奖。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" class="section">
+            <h3>联系我</h3>
+            <div class="contact">
+              <div class="contact-item">
+                <span aria-hidden="true">📧</span>
+                <span>xiaoming@example.com</span>
+              </div>
+              <div class="contact-item">
+                <span aria-hidden="true">📱</span>
+                <span>+86 138-0000-0000</span>
+              </div>
+              <div class="contact-item">
+                <span aria-hidden="true">📍</span>
+                <span>武汉市, 中国</span>
+              </div>
+            </div>
+            <p style="margin-top: 1rem">你也可以在 GitHub 上找到我：<a href="https://github.com/xiaoming" target="_blank">https://github.com/xiaoming</a></p>
+            <p>LinkedIn 个人主页：<a href="https://linkedin.com/in/xiaoming" target="_blank">https://linkedin.com/in/xiaoming</a></p>
+            <p>期待与你交流技术、合作项目或分享前端开发的心得！</p>
+            <p>感谢您浏览我的个人主页！欢迎通过以上方式联系我。</p>
+          </section>
+        </section>
+      </main>
+
+      <!-- 页脚 -->
+      <footer class="footer">
+        <p>&copy; 2025 小明. 保留所有权利。</p>
+      </footer>
+    </div>
+
+    <script>
+      // 汉堡按钮代码
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      // 切换菜单
+      menuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", !isExpanded);
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // 点击链接后关闭菜单
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // 点击页面其他区域关闭菜单
+      document.addEventListener("click", (e) => {
+        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // 按 Esc 键关闭
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+/* 全局样式重置 
+   清除所有元素默认的内外边距，使用border-box盒模型确保尺寸计算一致 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局滚动设置 
+   启用平滑滚动效果，设置滚动时顶部内边距为60px（避开固定导航栏） */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+/* 页面主体样式 
+   设置全局字体、行高、文本颜色和背景色 */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f7f9;
+}
+
+/* 容器布局 
+   使用flex布局使容器占满整个视口高度，子元素垂直排列
+   当前页面的垂直结构是：
+   导航栏navbar（固定定位）→ banner → .main-content → footer */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /*当内容少时也能强制占满一屏*/
+}
+
+/* 导航栏样式 
+   固定在顶部，使用flex布局实现内容两端对齐和垂直居中 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  height: 60px; /*导航高度*/
+}
+
+/* Logo样式 
+   设置Logo的字体大小、粗细和颜色 */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* 导航链接容器 
+   使用flex布局使导航链接水平排列并设置间距 */
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* 导航链接样式 
+   设置链接颜色、去除下划线并添加悬停效果 */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem;
+}
+
+/* 导航链接交互效果 
+   鼠标悬停改变颜色 */
+.nav-links a:hover {
+  color: #3498db;
+}
+
+/* 汉堡菜单按钮 
+   在移动端显示，使用flex垂直排列创建三条横线 */
+.menu-toggle {
+  display: none; /*隐藏不显示，当屏幕宽度小于768px时才显示*/
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent; /*去掉按钮的背景色和边框*/
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* 汉堡菜单线条 
+   定义三条横线的样式和过渡效果 */
+.menu-toggle span {
+  display: block; /*span变成块级元素*/
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center; /* 旋转原点居中 */
+}
+
+/* 汉堡菜单激活状态 - 第一条线 
+   旋转45度并位移形成叉号的一部分 */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg); /* 第一条线旋转下移 */
+}
+
+/* 汉堡菜单激活状态 - 中间线 
+   隐藏中间线条 */
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+/* 汉堡菜单激活状态 - 第三条线 
+   旋转-45度并位移形成叉号的另一部分 */
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg); /* 第三条线旋转上移 */
+}
+
+/* 横幅图片样式 
+   使图片占满宽度，固定高度并设置顶部外边距避开导航栏 */
+.banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 60px;
+}
+
+/* 内容区块公共样式 
+   定义各主要内容区块的背景、内边距、边框和阴影 */
+.section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* 主内容区布局 
+   使用flex布局使(1)侧边栏和(2)主内容区水平排列*/
+.main-content {
+  flex: 1; /*main-content自身在页面垂直Flex布局中填满剩余空间*/
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* (1)侧边栏样式  水平方向占1份空间
+   设置侧边栏的尺寸、背景和内部布局，使用flex垂直排列内容 */
+.sidebar {
+  flex: 1;
+  min-width: 280px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex; /*sidebar内部采用flex垂直布局*/
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 个人资料区域 
+   居中显示个人信息，底部添加分隔线 */
+.profile {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+/* 个人头像样式 
+   设置圆形头像并添加边框 */
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3498db;
+}
+
+/* 个人名称样式 
+   设置名称的间距和颜色 */
+.profile h2 {
+  margin: 0.5rem;
+  color: #2c3e50;
+}
+
+/* 个人职位样式 
+   设置职位文本的颜色和大小 */
+.profile p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* 技能和联系区域布局 
+   使用flex垂直排列项目并设置间距 */
+.skills,
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* 技能项和联系项布局 
+   使用flex水平排列图标和文本并居中对齐 */
+.skill-item,
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* 技能和联系文本样式 
+   设置文本大小 */
+.skill-item span,
+.contact-item span {
+  font-size: 0.95rem;
+}
+
+/* 技能和联系图标样式 
+   设置图标大小 */
+.skill-item [aria-hidden="true"],
+.contact-item [aria-hidden="true"] {
+  font-size: 1.2rem;
+}
+
+/* (2)主内容区域布局   水平方向占2份空间
+   使用flex垂直排列各个内容区块 */
+.main-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 区块标题样式 
+   设置标题的颜色、间距和底部边框 */
+.section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+  display: inline-block; /*和上面的边框配合，使得仅在标题文字下方显示短边框，否则边框会占满一行*/
+}
+
+/* 项目列表布局 
+   使用flex布局实现项目卡片的自动换行排列 */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* 项目卡片样式 
+   设置卡片的基础样式、尺寸和悬停效果 */
+.project-card {
+  flex: 1 1 300px; /*卡片在容器中自适应分配空间，同时保持最小宽度为 300px*/
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 项目卡片悬停效果 
+   鼠标悬停时轻微上浮并增强阴影 */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 项目图片样式  (这里的项目图片是以div背景图呈现)
+   设置项目图片的尺寸和背景显示方式 */
+.project-img {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* 项目信息区域样式 
+   设置项目描述区域的内边距 */
+.project-info {
+  padding: 1.2rem;
+}
+
+/* 项目标题样式 
+   设置项目标题的间距和颜色 */
+.project-info h4 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* 项目描述样式 
+   设置项目描述文本的颜色、大小和间距 */
+.project-info p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* 项目标签容器 
+   使用flex布局实现标签的自动换行排列 */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 标签样式 
+   设置标签的背景、颜色、内边距和圆角 */
+.tag {
+  background-color: #3498db;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* 时间线容器 
+   设置时间线的基础定位和flex垂直排列 */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 时间线竖线 
+   在时间线的前面添加垂直连接线 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #bdc3c7;
+  z-index: 0;
+}
+
+/* 时间线项布局 
+   使用flex水平排列时间点和内容 */
+.timeline-item {
+  display: flex;
+  gap: 1.2rem;
+  position: relative;
+  padding-left: 1rem;
+  z-index: 1;
+}
+
+/* 时间线点样式 
+   创建时间线上的圆形标记点 */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #3498db;
+  border: 4px solid white;
+  box-shadow: 0 0 0 2px #3498db;
+  flex-shrink: 0; /*防止圆形标记点被压缩变形(空间不足时)*/
+  align-self: flex-start; /*让圆形标记点与内容顶部对齐*/
+  margin-top: 0.5rem; /*微调圆形标记点对齐右侧内容*/
+  z-index: 2;
+}
+
+/* 时间线内容样式 
+   设置时间线内容区块的样式和悬停效果 */
+.timeline-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+
+/* 时间线内容悬停效果 
+   鼠标悬停时增强阴影 */
+.timeline-content:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 时间线标题样式 
+   设置时间线项目标题的样式 */
+.timeline-content h4 {
+  margin-bottom: 0.4rem;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+/* 时间线日期样式 
+   设置日期文本的样式 */
+.timeline-date {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+/* 时间线描述样式 
+   设置描述文本的样式 */
+.timeline-content p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 页脚样式 
+   设置页脚的背景、颜色和内边距 */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+/* 页脚文本样式 
+   设置页脚文本的大小 */
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ===== 下面完成响应式布局 - 移动端屏幕宽度小于768px时的样式调整 ===== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column; 
+    align-items: center; 
+    background-color: #2c3e50;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+
+    &.active {
+      max-height: 300px;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .nav-links a {
+    width: 100%; 
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid #3c5168; 
+  }
+
+  .banner img {
+    height: 200px;
+  }
+
+  .main-content {
+    flex-direction: column; 
+    padding: 1rem;
+    gap: 1rem; 
+  }
+
+  .sidebar,
+  .main-section {
+    flex: none;
+    width: 100%;
+  }
+
+  .sidebar {
+    min-width: unset; 
+  }
+
+  .section,
+  .sidebar {
+    padding: 1.5rem 1rem;
+  }
+
+  .timeline::before {
+    left: 12px; 
+  }
+
+  .timeline-item {
+    gap: 1rem; 
+    padding-left: 0; 
+  }
+
+  .timeline-dot {
+    margin-left: 4px; 
+  }
+}

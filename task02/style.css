@@ -15,23 +15,6 @@ a {
   color: #000;
 }
 
-header {
-  height: 90px;
-  background: white;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.header-inner {
-  width: 1400px;
-  margin: auto;
-}
-
-.header-inner img {
-  height: 40px;
-}
-
 h1 {
   text-align: center;
   letter-spacing: 1cap;
@@ -39,8 +22,23 @@ h1 {
   font-weight: normal;
 }
 
-/* banner */
+/* --- Reusable Components --- */
 
+/* Generic Section Styling */
+.section {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.section-compact-padding {
+  padding: 20px 40px 40px 40px;
+}
+
+/* Banner */
 .banner {
   margin-bottom: 30px;
   display: flex;
@@ -63,39 +61,40 @@ h1 {
   border-color: var(--primary-color);
 }
 
-/* playlist */
-
-.playlist-section {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 40px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.playlist {
+/* Generic Grid Layout */
+.grid {
   width: 100%;
   display: grid;
+}
+
+.grid-cols-5 {
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 
-.playlist-item {}
-
-.album {
-  position: relative;
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 40px;
 }
 
-.cover-wrap {
+/* Generic Media Wrapper (for album covers and MVs) */
+.media-wrap {
   display: block;
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+}
+
+.aspect-ratio-1-1 {
   padding-bottom: 100%;
 }
 
-.cover-img {
+.aspect-ratio-16-9 {
+  padding-bottom: 56.25%;
+  background-color: #eee;
+}
+
+.media-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,11 +106,11 @@ h1 {
   object-fit: cover;
 }
 
-.cover-wrap:hover .cover-img {
+.media-wrap:hover .media-img {
   transform: scale(1.1);
 }
 
-.cover-mask {
+.media-mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -119,6 +118,10 @@ h1 {
   height: 100%;
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.3s;
+}
+
+.media-wrap:hover .media-mask {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .play-button {
@@ -132,16 +135,13 @@ h1 {
   transition: all 0.3s;
 }
 
-.cover-wrap:hover .cover-mask {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.cover-wrap:hover .play-button {
+.media-wrap:hover .play-button {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-.album-title {
+/* Generic Item Title & Author */
+.item-title {
   display: block;
   margin-top: 15px;
   font-size: 16px;
@@ -153,11 +153,11 @@ h1 {
   color: #333;
 }
 
-.album-title:hover {
+.item-title:hover {
   color: var(--primary-color);
 }
 
-.album-author {
+.item-author {
   display: block;
   margin-top: 5px;
   color: #999;
@@ -168,7 +168,7 @@ h1 {
   font-size: 14px;
 }
 
-.album-author:hover {
+.item-author:hover {
   color: var(--primary-color);
 }
 
@@ -178,23 +178,27 @@ h1 {
   font-size: 14px;
 }
 
-/* new songs */
-.newsong-section {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 20px 40px 40px 40px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-sizing: border-box;
+/* --- Page Specific Overrides & Styles --- */
+
+/* Header */
+header {
+  height: 90px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.newsonglist {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px 40px;
+.header-inner {
+  width: 1400px;
+  margin: auto;
 }
 
+.header-inner img {
+  height: 40px;
+}
+
+/* New Songs List */
 .song-item {
   display: flex;
   align-items: center;
@@ -236,122 +240,24 @@ h1 {
   flex-shrink: 0;
 }
 
-/* mv */
-.mv-section {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 20px 40px 40px 40px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
 
-.mv-nav {
-  margin-left: 40px;
-}
-
-.mv-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  margin-right: 25px;
-  padding-bottom: 5px;
-}
-
-.mv-nav a.active,
-.mv-nav a:hover {
-  color: #31c27c;
-  border-bottom: 2px solid #31c27c;
-}
-
-.mvlist {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+/* MV Section Specifics */
+.mv-grid {
   gap: 25px 20px;
-}
-
-.mv {
-  position: relative;
-}
-
-.mv-wrap {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  padding-bottom: 56.25%;
-  background-color: #eee;
-}
-
-.mv-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.mv-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.mv-wrap:hover .mv-img {
-  transform: scale(1.1);
-}
-
-.mv-wrap:hover .mv-mask,
-.mv-wrap:hover .play-button {
-  opacity: 1;
-}
-
-.mv-title,
-.album-author {
-  display: block;
-  text-decoration: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .mv-title {
   margin-top: 10px;
   font-size: 15px;
-  color: #333;
 }
 
-.mv-title:hover {
-  color: #31c27c;
-}
-
-.album-author {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #999;
-}
-
-.album-author:hover {
-  color: #31c27c;
-}
-
-/* page */
-
+/* Pagination */
 .page {
   text-align: center;
   margin: 50px 0;
 }
 
-.page-item,
-.page-current {
+.page-link {
   display: inline-block;
   padding: 8px 15px;
   margin: 0 5px;
@@ -362,8 +268,7 @@ h1 {
   transition: all 0.3s;
 }
 
-.page-item:hover,
-.page-current:hover {
+.page-link:hover {
   background-color: var(--primary-color);
   color: #fff;
   border-color: var(--primary-color);
@@ -373,11 +278,9 @@ h1 {
   background-color: var(--primary-color);
   color: #fff;
   border-color: var(--primary-color);
-  border-radius: 5px;
 }
 
 .page-more {
   border: none;
-  border-radius: 5px;
   background: none;
 }

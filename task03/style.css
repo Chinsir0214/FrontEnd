@@ -1,13 +1,13 @@
 /* global */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
+    background-color: #f0f0f0;
+    color: #1c1c1c;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -19,23 +19,26 @@ body {
 }
 
 header h1 {
-    font-size: 48px;
-    color: #6d63ff;
+    font-size: 42px;
+    color: #0078D4; /* Windows 10 Accent Blue */
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 header p {
     font-size: 18px;
-    color: #888;
+    color: #666;
     margin-bottom: 30px;
 }
 
 .todo-app {
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: rgba(252, 252, 252, 0.7); /* Acrylic Material */
+    backdrop-filter: blur(25px) saturate(150%);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
     text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* input */
@@ -48,31 +51,34 @@ header p {
 .todo-input {
     flex-grow: 1;
     padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s ease;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .todo-input:focus {
-    border-color: #6d63ff;
+    border-color: #0078D4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
 }
 
 .add-btn {
     padding: 12px 20px;
-    border: none;
-    background-color: #6d63ff;
+    border: 1px solid #0078D4;
+    background-color: #0078D4;
     color: white;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     white-space: nowrap;
 }
 
 .add-btn:hover {
-    background-color: #584fdb;
+    background-color: #005a9e;
+    border-color: #005a9e;
 }
 
 /* filter */
@@ -80,27 +86,28 @@ header p {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
 }
 
 .filter-btn {
-    padding: 8px 16px;
-    border: 1px solid #ddd;
+    padding: 8px 4px;
+    border: none;
+    border-bottom: 2px solid transparent;
     background-color: transparent;
-    border-radius: 20px;
+    border-radius: 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    color: #666;
 }
 
 .filter-btn:hover {
-    background-color: #f0f0f0;
-    border-color: #ccc;
+    color: #0078D4;
 }
 
 .filter-btn.active {
-    background-color: #e9e7ff;
-    color: #6d63ff;
-    border-color: #6d63ff;
-    font-weight: bold;
+    color: #0078D4;
+    border-color: #0078D4;
+    font-weight: 600;
 }
 
 /* list */
@@ -114,29 +121,35 @@ header p {
     display: flex;
     align-items: center;
     padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: all 0.4s ease;
+    background-color: transparent;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
     opacity: 1;
     transform: translateY(0);
 }
 
+.todo-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
 .todo-item.fade-out {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(-10px);
 }
 
 .todo-item.completed .todo-text {
     text-decoration: line-through;
-    color: #aaa;
+    color: #888;
 }
 
 .todo-checkbox {
     margin-right: 15px;
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
     cursor: pointer;
+    accent-color: #0078D4;
 }
 
 .todo-text {
@@ -147,30 +160,42 @@ header p {
 .delete-btn {
     background: none;
     border: none;
-    color: #aaa;
-    font-size: 20px;
+    color: #888;
+    font-size: 16px; /* Use a standard font character for delete */
+    font-family: "Segoe UI Symbol", sans-serif;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    padding: 4px 8px;
 }
+
+.delete-btn::before {
+    content: '\E74D'; /* Segoe UI Symbol for Delete */
+}
+
 
 .todo-item:hover .delete-btn {
     opacity: 1;
 }
 
+.delete-btn:hover {
+    color: #da3b01;
+}
+
 /* summary */
 .todo-summary {
-    border-top: 1px solid #eee;
     margin-top: 20px;
     padding-top: 20px;
-    text-align: center;
-    color: #888;
+    text-align: right;
+    color: #666;
+    font-size: 14px;
 }
 
 /* --- media --- */
 @media (max-width: 480px) {
     body {
         padding: 10px;
+        align-items: flex-start;
     }
 
     header h1 {
